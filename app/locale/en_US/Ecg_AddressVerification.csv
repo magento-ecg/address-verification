@@ -1,0 +1,4 @@
+"API error %s. Description: %s. Source: %s.", "API error %s. Description: %s. Source: %s."
+"API address validate response error %s. Description: %s. Source: %s.", API address validate response error %s. Description: %s. Source: %s.
+"Invalid zip code %s, should be %s.", "Invalid zip/postal code %s, should be %s."
+"Invalid state %s, should be %s.", "Invalid state %s, should be %s."

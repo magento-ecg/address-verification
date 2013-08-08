@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * (c) Magento ECG team <consulting@magento.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <address_verification translate="title" module="ecg_addressverification">
+                                        <title>Address Verification</title>
+                                        <sort_order>100</sort_order>
+                                    </address_verification>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

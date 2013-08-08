@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * (c) Magento ECG team <consulting@magento.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+-->
+<config>
+    <modules>
+        <Ecg_AddressVerification>
+            <version>0.1.0</version>
+        </Ecg_AddressVerification>
+    </modules>
+    <global>
+        <models>
+            <ecg_addressverification>
+                <class>Ecg_AddressVerification_Model</class>
+            </ecg_addressverification>
+        </models>
+        <resources>
+            <ecg_addressverification_setup>
+                <setup>
+                    <module>Ecg_AddressVerification</module>
+                </setup>
+            </ecg_addressverification_setup>
+        </resources>
+        <helpers>
+            <ecg_addressverification>
+                <class>Ecg_AddressVerification_Helper</class>
+            </ecg_addressverification>
+        </helpers>
+        <blocks>
+            <ecg_addressverification>
+                <class>Ecg_AddressVerification_Block</class>
+            </ecg_addressverification>
+        </blocks>
+    </global>
+    <frontend>
+        <events>
+            <customer_address_save_before>
+                <observers>
+                    <rosetta_addressvalidationusps>
+                        <class>ecg_addressverification/observer</class>
+                        <method>verifyAddress</method>
+                    </rosetta_addressvalidationusps>
+                </observers>
+            </customer_address_save_before>
+        </events>
+        <translate>
+            <modules>
+                <Ecg_AddressVerification>
+                    <files>
+                        <default>Ecg_AddressVerification.csv</default>
+                    </files>
+                </Ecg_AddressVerification>
+            </modules>
+        </translate>
+    </frontend>
+    <adminhtml>
+        <events>
+            <sales_quote_address_save_before>
+                <observers>
+                    <ecg_addressverification>
+                        <class>ecg_addressverification/observer</class>
+                        <method>verifyAddress</method>
+                    </ecg_addressverification>
+                </observers>
+            </sales_quote_address_save_before>
+        </events>
+    </adminhtml>
+    <default>
+        <address_verification>
+            <general>
+                <enable>1</enable>
+                <use_service_provider>usps</use_service_provider>
+            </general>
+            <usps>
+                <gateway_url>http://production.shippingapis.com/ShippingAPI.dll</gateway_url>
+                <secure_gateway_url>https://secure.shippingapis.com/ShippingAPI.dll</secure_gateway_url>
+                <user_id></user_id>
+                <debug>1</debug>
+            </usps>
+        </address_verification>
+    </default>
+</config>

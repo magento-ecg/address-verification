@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * (c) Magento ECG team <consulting@magento.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+-->
+<config>
+    <modules>
+        <Ecg_AddressVerification>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Ecg_AddressVerification>
+    </modules>
+</config>
