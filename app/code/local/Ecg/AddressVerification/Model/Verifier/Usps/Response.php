@@ -42,6 +42,16 @@ class Ecg_AddressVerification_Model_Verifier_Usps_Response extends Varien_Object
     }
 
     /**
+     * Get XML object
+     *
+     * @return SimpleXMLElement
+     */
+    protected function _getXml()
+    {
+        return new SimpleXMLElement($this->getBody());
+    }
+
+    /**
      * Handle request data
      *
      * @throws Exception
@@ -49,7 +59,7 @@ class Ecg_AddressVerification_Model_Verifier_Usps_Response extends Varien_Object
      */
     public function handle()
     {
-        $xml = new SimpleXMLElement($this->getBody());
+        $xml = $this->_getXml();
 
         switch ($xml->getName()) {
             case 'Error' :

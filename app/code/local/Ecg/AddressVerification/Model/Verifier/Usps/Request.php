@@ -104,18 +104,27 @@ class Ecg_AddressVerification_Model_Verifier_Usps_Request extends Varien_Object
     }
 
     /**
-     * Send request to USPS server
+     * Get HTTP client object
      *
-     * @return Ecg_AddressVerification_Model_Verifier_Usps_Response
+     * @return Zend_Http_Client
      */
-    public function send()
+    protected function _getClient()
     {
         $client = new Zend_Http_Client();
         $client->setUri($this->getGatewayUrl())
             ->setConfig(array('maxredirects' => self::REQUEST_MAX_REDIRECTS, 'timeout' => self::REQUEST_TIMEOUT))
             ->setParameterGet('API', $this->getApiCode())
             ->setParameterGet('XML', $this->asXml());
+        return $client;
+    }
 
-        return $this->getResponse()->init($client->request());
+    /**
+     * Send request to USPS server
+     *
+     * @return Ecg_AddressVerification_Model_Verifier_Usps_Response
+     */
+    public function send()
+    {
+        return $this->getResponse()->init($this->_getClient()->request());
     }
 }
