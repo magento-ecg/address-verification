@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * (c) Magento ECG team <consulting@magento.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+-->
+<phpunit bootstrap="bootstrap.php">
+    <testsuites>
+        <testsuite name="ECG Test Suite">
+            <directory>Ecg</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
